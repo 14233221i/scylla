@@ -16,12 +16,12 @@ function NavBar() {
   const { cartItems } = useCart();
   const cartCount = cartItems.reduce((sum, item) => sum + item.quantity, 0);
   return (
-    <nav className="w-full bg-gradient-to-r from-gray-900 to-gray-800 py-4 px-4 flex justify-center gap-6 text-base font-semibold shadow-md sticky top-0 z-50 items-center">
-      <Link href="/" className="hover:text-pink-400 transition">Home</Link>
-      <Link href="/about" className="hover:text-pink-400 transition">About</Link>
-      <Link href="/blog" className="hover:text-pink-400 transition">Blog</Link>
-      <Link href="/book" className="hover:text-pink-400 transition">Book Appointment</Link>
-      <Link href="/contact" className="hover:text-pink-400 transition">Contact Us</Link>
+    <nav className="w-full bg-white/90 backdrop-blur-sm py-4 px-4 flex justify-center gap-6 text-base font-semibold shadow-lg sticky top-0 z-50 items-center border-b border-gray-200">
+      <Link href="/" className="text-gray-800 hover:text-pink-500 transition-colors font-medium">Home</Link>
+      <Link href="/about" className="text-gray-800 hover:text-pink-500 transition-colors font-medium">About</Link>
+      <Link href="/blog" className="text-gray-800 hover:text-pink-500 transition-colors font-medium">Blog</Link>
+      <Link href="/book" className="text-gray-800 hover:text-pink-500 transition-colors font-medium">Book Appointment</Link>
+      <Link href="/contact" className="text-gray-800 hover:text-pink-500 transition-colors font-medium">Contact Us</Link>
       <Link href="/cart" className="ml-4 relative text-2xl hover:scale-110 transition-transform">
         <span role="img" aria-label="cart">🛒</span>
         {cartCount > 0 && (
