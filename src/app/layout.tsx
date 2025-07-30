@@ -27,6 +27,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} antialiased relative overflow-x-hidden`}>
         {/* Animated background */}
         <div className="fixed inset-0 -z-10 animate-gradient bg-gradient-to-br from-pink-500 via-fuchsia-500 to-blue-500 opacity-60 blur-2xl" style={{backgroundSize:'200% 200%'}} />

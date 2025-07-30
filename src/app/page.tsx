@@ -79,27 +79,27 @@ export default function Home() {
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white font-sans">
-      <header className="py-10 text-center">
-        <h1 className="text-4xl sm:text-5xl font-extrabold mb-2 bg-gradient-to-r from-pink-500 to-fuchsia-500 bg-clip-text text-transparent">Digital Wing</h1>
-        <p className="text-lg sm:text-xl max-w-2xl mx-auto text-gray-200">Empowering businesses and startups with complete digital solutions: websites, branding, online orders, social media, and more.</p>
+      <header className="py-6 sm:py-10 text-center px-4">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-2 bg-gradient-to-r from-pink-500 to-fuchsia-500 bg-clip-text text-transparent">Digital Wing</h1>
+        <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto text-gray-200 px-2">Empowering businesses and startups with complete digital solutions: websites, branding, online orders, social media, and more.</p>
       </header>
-      <main className="max-w-6xl mx-auto px-4 pb-16">
-        <section className="mb-12 text-center">
-          <h2 className="text-xl font-bold mb-2">Your Digital Success Partner</h2>
-          <p className="max-w-2xl mx-auto text-gray-300">At Digital Wing, we help businesses, startups, and stores build and manage their digital presence. From websites and branding to social media, online orders, and AI-powered chatbots, we provide everything you need to thrive in the digital world. Our team delivers remote and offline services, tailored bundles, and ongoing support to ensure your business stands out and grows online.</p>
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
+        <section className="mb-8 sm:mb-12 text-center">
+          <h2 className="text-lg sm:text-xl font-bold mb-2">Your Digital Success Partner</h2>
+          <p className="max-w-2xl mx-auto text-gray-300 text-sm sm:text-base px-2">At Digital Wing, we help businesses, startups, and stores build and manage their digital presence. From websites and branding to social media, online orders, and AI-powered chatbots, we provide everything you need to thrive in the digital world. Our team delivers remote and offline services, tailored bundles, and ongoing support to ensure your business stands out and grows online.</p>
         </section>
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold mb-8 text-center">All-in-One Business Digital Bundles</h2>
-          <div className="grid gap-8 md:grid-cols-3">
+        <section className="mb-12 sm:mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center px-2">All-in-One Business Digital Bundles</h2>
+          <div className="grid gap-6 sm:gap-8 grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
             {bundles.map((bundle, idx) => (
               <div
                 key={bundle.name}
-                className={`rounded-2xl shadow-lg p-6 bg-gradient-to-br ${bundle.color} text-white flex flex-col transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer`}
+                className={`rounded-2xl shadow-lg p-4 sm:p-6 bg-gradient-to-br ${bundle.color} text-white flex flex-col transform transition-transform duration-300 hover:scale-105 hover:shadow-2xl cursor-pointer`}
               >
-                <h3 className="text-xl font-bold mb-2">{bundle.name}</h3>
-                <div className="text-lg font-semibold mb-2">{bundle.price}</div>
-                <p className="mb-4 text-sm text-white/90">{bundle.description}</p>
-                <ul className="list-disc list-inside text-sm flex-1 mb-4">
+                <h3 className="text-lg sm:text-xl font-bold mb-2">{bundle.name}</h3>
+                <div className="text-base sm:text-lg font-semibold mb-2">{bundle.price}</div>
+                <p className="mb-4 text-xs sm:text-sm text-white/90">{bundle.description}</p>
+                <ul className="list-disc list-inside text-xs sm:text-sm flex-1 mb-4 space-y-1">
                   {bundle.features.map((f, i) => (
                     <li key={i}>{f}</li>
                   ))}
@@ -121,12 +121,12 @@ export default function Home() {
           </div>
         </section>
         {/* Subscription Pack Section */}
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold mb-6 text-center">Subscription Pack: Ongoing Digital Management</h2>
-          <div className="max-w-2xl mx-auto bg-gradient-to-br from-pink-600 to-fuchsia-600 rounded-2xl shadow-lg p-8 text-white flex flex-col items-center mb-8">
-            <div className="text-3xl font-extrabold mb-2">₹999/month</div>
-            <div className="text-lg font-semibold mb-4">Let us handle your digital presence, so you can focus on your business!</div>
-            <ul className="list-disc list-inside text-white/90 text-base mb-4 text-left w-full max-w-md space-y-2">
+        <section className="mb-12 sm:mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center px-2">Subscription Pack: Ongoing Digital Management</h2>
+          <div className="max-w-2xl mx-auto bg-gradient-to-br from-pink-600 to-fuchsia-600 rounded-2xl shadow-lg p-4 sm:p-8 text-white flex flex-col items-center mb-6 sm:mb-8">
+            <div className="text-2xl sm:text-3xl font-extrabold mb-2">₹999/month</div>
+            <div className="text-base sm:text-lg font-semibold mb-4 text-center">Let us handle your digital presence, so you can focus on your business!</div>
+            <ul className="list-disc list-inside text-white/90 text-sm sm:text-base mb-4 text-left w-full max-w-md space-y-1 sm:space-y-2">
               <li>Up to <span className="font-bold">3 website edits</span> per month (content, images, menu updates, etc.)</li>
               <li>Menu/product/service updates as needed</li>
               <li>Online order management and redirection</li>
@@ -154,10 +154,10 @@ export default function Home() {
             </div>
           </div>
           {/* Premium Subscription Pack */}
-          <div className="max-w-2xl mx-auto bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl shadow-lg p-8 text-white flex flex-col items-center">
-            <div className="text-3xl font-extrabold mb-2">₹2,499/month</div>
-            <div className="text-lg font-semibold mb-4">All-in-One Premium Digital Management (with Hosting & Domain Included!)</div>
-            <ul className="list-disc list-inside text-white/90 text-base mb-4 text-left w-full max-w-md space-y-2">
+          <div className="max-w-2xl mx-auto bg-gradient-to-br from-yellow-400 to-orange-500 rounded-2xl shadow-lg p-4 sm:p-8 text-white flex flex-col items-center">
+            <div className="text-2xl sm:text-3xl font-extrabold mb-2">₹2,499/month</div>
+            <div className="text-base sm:text-lg font-semibold mb-4 text-center">All-in-One Premium Digital Management (with Hosting & Domain Included!)</div>
+            <ul className="list-disc list-inside text-white/90 text-sm sm:text-base mb-4 text-left w-full max-w-md space-y-1 sm:space-y-2">
               <li>Everything in the ₹999/month pack</li>
               <li>Annual payment for domain, hosting, and server included</li>
               <li>Up to <span className="font-bold">8 website edits</span> per month</li>
@@ -187,36 +187,36 @@ export default function Home() {
             </div>
           </div>
         </section>
-        <section className="mb-16">
-          <h2 className="text-2xl font-bold mb-6 text-center">Add-Ons & Upsells</h2>
+        <section className="mb-12 sm:mb-16">
+          <h2 className="text-xl sm:text-2xl font-bold mb-6 text-center px-2">Add-Ons & Upsells</h2>
           <div className="overflow-x-auto">
-            <table className="min-w-full text-sm text-left border-separate border-spacing-y-2">
+            <table className="min-w-full text-xs sm:text-sm text-left border-separate border-spacing-y-2">
               <thead>
                 <tr className="bg-gray-700">
-                  <th className="py-2 px-4 rounded-l-lg">Add-On</th>
-                  <th className="py-2 px-4">Price</th>
-                  <th className="py-2 px-4 rounded-r-lg">Description</th>
+                  <th className="py-2 px-2 sm:px-4 rounded-l-lg">Add-On</th>
+                  <th className="py-2 px-2 sm:px-4">Price</th>
+                  <th className="py-2 px-2 sm:px-4 rounded-r-lg">Description</th>
                 </tr>
               </thead>
               <tbody>
                 {addons.map((addon) => (
                   <tr key={addon.name} className="bg-gray-800/80">
-                    <td className="py-2 px-4 font-semibold">{addon.name}</td>
-                    <td className="py-2 px-4">{addon.price}</td>
-                    <td className="py-2 px-4">{addon.desc}</td>
+                    <td className="py-2 px-2 sm:px-4 font-semibold">{addon.name}</td>
+                    <td className="py-2 px-2 sm:px-4">{addon.price}</td>
+                    <td className="py-2 px-2 sm:px-4">{addon.desc}</td>
                   </tr>
                 ))}
               </tbody>
             </table>
           </div>
         </section>
-        <section className="text-center">
-          <h2 className="text-2xl font-bold mb-4">Ready to Grow Your Business?</h2>
-          <p className="mb-6 text-gray-200">Contact us for a free consultation or to get started with your digital transformation.</p>
-          <a href="mailto:info@digitalwing.com" className="inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-3 px-8 rounded-full shadow-lg transition">Contact Us</a>
+        <section className="text-center px-4">
+          <h2 className="text-xl sm:text-2xl font-bold mb-4">Ready to Grow Your Business?</h2>
+          <p className="mb-6 text-gray-200 text-sm sm:text-base">Contact us for a free consultation or to get started with your digital transformation.</p>
+          <a href="mailto:info@digitalwing.com" className="inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full shadow-lg transition text-sm sm:text-base">Contact Us</a>
         </section>
       </main>
-      <footer className="py-8 text-center text-gray-400 text-xs">&copy; {new Date().getFullYear()} Digital Wing. All rights reserved.</footer>
+      <footer className="py-6 sm:py-8 text-center text-gray-400 text-xs px-4">&copy; {new Date().getFullYear()} Digital Wing. All rights reserved.</footer>
     </div>
   );
 }
