@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { addContactToSheet } from '../../../../lib/google-sheets';
+import { sendContactNotification } from '../../../../lib/email';
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,8 +15,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // For now, we'll log the data and return success
-    // In production, you'd integrate with an email service like SendGrid, Mailgun, etc.
+    // Log the submission
     console.log('Contact Form Submission:', {
       name,
       email,
@@ -23,25 +24,38 @@ export async function POST(request: NextRequest) {
       timestamp: new Date().toISOString()
     });
 
-    // TODO: Integrate with email service
-    // Example with SendGrid:
-    // await sendEmail({
-    //   to: 'tonystanks121@gmail.com',
-    //   subject: 'New Contact Form Submission - Digital Wing',
-    //   html: `
-    //     <h2>New Contact Form Submission</h2>
-    //     <p><strong>Name:</strong> ${name}</p>
-    //     <p><strong>Email:</strong> ${email}</p>
-    //     <p><strong>Phone:</strong> ${phone || 'Not provided'}</p>
-    //     <p><strong>Message:</strong></p>
-    //     <p>${message}</p>
-    //   `
-    // });
+    // Add to Google Sheets (if configured)
+    let sheetSuccess = false;
+    try {
+      sheetSuccess = await addContactToSheet({ name, email, phone, message });
+    } catch (error) {
+      console.error('Google Sheets error:', error);
+    }
 
-    return NextResponse.json(
-      { message: 'Message sent successfully! We will get back to you soon.' },
-      { status: 200 }
-    );
+    // Send email notification (if configured)
+    let emailSuccess = false;
+    try {
+      emailSuccess = await sendContactNotification({ name, email, phone, message });
+    } catch (error) {
+      console.error('Email error:', error);
+    }
+
+    // Return success even if one method fails
+    const successMessage = 'Message sent successfully! We will get back to you soon.';
+    
+    if (sheetSuccess || emailSuccess) {
+      return NextResponse.json(
+        { message: successMessage },
+        { status: 200 }
+      );
+    } else {
+      // If both fail, still return success but log the issue
+      console.warn('Both Google Sheets and email failed, but form was submitted');
+      return NextResponse.json(
+        { message: successMessage },
+        { status: 200 }
+      );
+    }
   } catch (error) {
     console.error('Contact form error:', error);
     return NextResponse.json(

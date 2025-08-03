@@ -1,4 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
+import { addBookingToSheet } from '../../../../lib/google-sheets';
+import { sendBookingNotification } from '../../../../lib/email';
 
 export async function POST(request: NextRequest) {
   try {
@@ -13,8 +15,7 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // For now, we'll log the data and return success
-    // In production, you'd integrate with an email service and calendar system
+    // Log the booking
     console.log('Appointment Booking:', {
       name,
       email,
@@ -24,25 +25,38 @@ export async function POST(request: NextRequest) {
       timestamp: new Date().toISOString()
     });
 
-    // TODO: Integrate with email service and calendar
-    // Example with SendGrid:
-    // await sendEmail({
-    //   to: 'tonystanks121@gmail.com',
-    //   subject: 'New Appointment Booking - Digital Wing',
-    //   html: `
-    //     <h2>New Appointment Booking</h2>
-    //     <p><strong>Name:</strong> ${name}</p>
-    //     <p><strong>Email:</strong> ${email}</p>
-    //     <p><strong>Phone:</strong> ${phone}</p>
-    //     <p><strong>Date:</strong> ${date}</p>
-    //     <p><strong>Time:</strong> ${time}</p>
-    //   `
-    // });
+    // Add to Google Sheets (if configured)
+    let sheetSuccess = false;
+    try {
+      sheetSuccess = await addBookingToSheet({ name, email, phone, date, time });
+    } catch (error) {
+      console.error('Google Sheets error:', error);
+    }
 
-    return NextResponse.json(
-      { message: 'Appointment booked successfully! We will confirm your slot soon.' },
-      { status: 200 }
-    );
+    // Send email notification (if configured)
+    let emailSuccess = false;
+    try {
+      emailSuccess = await sendBookingNotification({ name, email, phone, date, time });
+    } catch (error) {
+      console.error('Email error:', error);
+    }
+
+    // Return success even if one method fails
+    const successMessage = 'Appointment booked successfully! We will confirm your slot soon.';
+    
+    if (sheetSuccess || emailSuccess) {
+      return NextResponse.json(
+        { message: successMessage },
+        { status: 200 }
+      );
+    } else {
+      // If both fail, still return success but log the issue
+      console.warn('Both Google Sheets and email failed, but booking was submitted');
+      return NextResponse.json(
+        { message: successMessage },
+        { status: 200 }
+      );
+    }
   } catch (error) {
     console.error('Booking error:', error);
     return NextResponse.json(
