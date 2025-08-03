@@ -2,6 +2,7 @@
 import React, { useState } from "react";
 import { useCart } from "../../../lib/cart-context";
 import Link from "next/link";
+import Image from "next/image";
 
 // Add-on data (with stock images)
 const addons = [
@@ -117,6 +118,7 @@ export default function CartPage() {
   const { cartItems, removeItem, clearCart, addItem } = useCart();
   const total = cartItems.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const [openDropdown, setOpenDropdown] = useState<string | null>(null);
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
   function handleAddAddon(addon: typeof addons[0]) {
     addItem({
@@ -193,11 +195,13 @@ export default function CartPage() {
                     key={addon.id}
                     className="bg-gray-800 rounded-xl shadow-lg p-4 flex flex-col items-center hover:scale-105 hover:shadow-2xl transition-transform duration-300 cursor-pointer group relative overflow-hidden min-w-[220px] snap-center"
                   >
-                    <img
-                      src={addon.img}
-                      alt={addon.name}
-                      className="w-20 h-20 object-cover rounded-full mb-2 border-4 border-pink-500 group-hover:border-yellow-400 transition-all duration-300"
-                    />
+                                            <Image
+                          src={addon.img}
+                          alt={addon.name}
+                          width={80}
+                          height={80}
+                          className="w-20 h-20 object-cover rounded-full mb-2 border-4 border-pink-500 group-hover:border-yellow-400 transition-all duration-300"
+                        />
                     <div className="font-bold text-base mb-1 text-center">{addon.name}</div>
                     <div className="text-pink-400 font-bold mb-1">₹{addon.price}</div>
                     <div className="text-xs text-gray-300 mb-2 text-center">{addon.desc}</div>

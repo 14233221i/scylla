@@ -11,6 +11,7 @@ export default function Contact() {
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<"idle" | "success" | "error">("idle");
   const [statusMessage, setStatusMessage] = useState("");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -59,7 +60,7 @@ export default function Contact() {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white font-sans">
       <header className="py-6 sm:py-10 text-center px-4">
         <h1 className="text-3xl sm:text-4xl font-extrabold mb-2 bg-gradient-to-r from-pink-500 to-fuchsia-500 bg-clip-text text-transparent">Contact Us</h1>
-        <p className="text-base sm:text-lg max-w-2xl mx-auto text-gray-200">We'd love to hear from you! Reach out for any queries, quotes, or support.</p>
+        <p className="text-base sm:text-lg max-w-2xl mx-auto text-gray-200">We&apos;d love to hear from you! Reach out for any queries, quotes, or support.</p>
       </header>
       <main className="max-w-xl mx-auto px-4 pb-16">
         <div className="mb-8 text-center space-y-2 text-sm sm:text-base">

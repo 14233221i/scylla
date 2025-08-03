@@ -29,6 +29,7 @@ export default function Book() {
     time: ""
   });
   const [error, setError] = useState("");
+  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const [isSubmitting, setIsSubmitting] = useState(false);
 
   function handleChange(e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) {
@@ -74,7 +75,7 @@ export default function Book() {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white font-sans">
       <header className="py-6 sm:py-10 text-center px-4">
         <h1 className="text-3xl sm:text-4xl font-extrabold mb-2 bg-gradient-to-r from-pink-500 to-fuchsia-500 bg-clip-text text-transparent">Book an Appointment</h1>
-        <p className="text-base sm:text-lg max-w-2xl mx-auto text-gray-200">Let's discuss your business needs! Fill out the form and our team will get in touch.</p>
+        <p className="text-base sm:text-lg max-w-2xl mx-auto text-gray-200">Let&apos;s discuss your business needs! Fill out the form and our team will get in touch.</p>
       </header>
       <main className="max-w-xl mx-auto px-4 pb-16">
         <form className="bg-gray-800 rounded-xl shadow-lg p-6 sm:p-8 flex flex-col gap-4" onSubmit={handleSubmit}>
