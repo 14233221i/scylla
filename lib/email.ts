@@ -19,7 +19,7 @@ export async function sendContactNotification(data: {
     const mailOptions = {
       from: process.env.suhashc8@gmail.com,
       to: 'tonystanks121@gmail.com',
-      subject: 'New Contact Form Submission - Digital Wing',
+      subject: 'New Contact Form Submission - Scylla',
       html: `
         <h2>New Contact Form Submission</h2>
         <p><strong>Name:</strong> ${data.name}</p>
@@ -28,7 +28,7 @@ export async function sendContactNotification(data: {
         <p><strong>Message:</strong></p>
         <p>${data.message}</p>
         <hr>
-        <p><em>This message was sent from your Digital Wing website contact form.</em></p>
+        <p><em>This message was sent from your Scylla website contact form.</em></p>
       `,
     };
 
@@ -52,7 +52,7 @@ export async function sendBookingNotification(data: {
     const mailOptions = {
       from: process.env.EMAIL_USER,
       to: 'tonystanks121@gmail.com',
-      subject: 'New Appointment Booking - Digital Wing',
+      subject: 'New Appointment Booking - Scylla',
       html: `
         <h2>New Appointment Booking</h2>
         <p><strong>Name:</strong> ${data.name}</p>
@@ -61,7 +61,7 @@ export async function sendBookingNotification(data: {
         <p><strong>Date:</strong> ${data.date}</p>
         <p><strong>Time:</strong> ${data.time}</p>
         <hr>
-        <p><em>This booking was made through your Digital Wing website.</em></p>
+        <p><em>This booking was made through your Scylla website.</em></p>
       `,
     };
 
