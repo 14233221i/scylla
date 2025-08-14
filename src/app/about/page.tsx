@@ -5,7 +5,7 @@ export default function About() {
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white font-sans">
       <header className="py-10 text-center">
         <h1 className="text-3xl sm:text-4xl font-extrabold mb-2 bg-gradient-to-r from-pink-500 to-fuchsia-500 bg-clip-text text-transparent">About Us</h1>
-        <p className="text-lg max-w-2xl mx-auto text-gray-200">Learn more about Digital Wing, our mission, and our team.</p>
+        <p className="text-lg max-w-2xl mx-auto text-gray-200">Learn more about Scylla, our mission, and our team.</p>
       </header>
       <main className="max-w-3xl mx-auto px-4 pb-16">
         <section className="mb-8 text-center">

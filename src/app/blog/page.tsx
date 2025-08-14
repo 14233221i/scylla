@@ -4,7 +4,7 @@ export default function Blog() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white font-sans">
       <header className="py-10 text-center">
-        <h1 className="text-3xl sm:text-4xl font-extrabold mb-2 bg-gradient-to-r from-pink-500 to-fuchsia-500 bg-clip-text text-transparent">Why Choose Digital Wing?</h1>
+        <h1 className="text-3xl sm:text-4xl font-extrabold mb-2 bg-gradient-to-r from-pink-500 to-fuchsia-500 bg-clip-text text-transparent">Why Choose Scylla?</h1>
         <p className="text-lg max-w-2xl mx-auto text-gray-200">Discover how we empower your business to succeed online.</p>
       </header>
       <main className="max-w-3xl mx-auto px-4 pb-16">

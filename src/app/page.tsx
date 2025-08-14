@@ -80,13 +80,13 @@ export default function Home() {
   return (
     <div className="min-h-screen bg-gradient-to-br from-gray-900 to-gray-800 text-white font-sans">
       <header className="py-6 sm:py-10 text-center px-4">
-        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-2 bg-gradient-to-r from-pink-500 to-fuchsia-500 bg-clip-text text-transparent">Digital Wing</h1>
+        <h1 className="text-3xl sm:text-4xl md:text-5xl font-extrabold mb-2 bg-gradient-to-r from-pink-500 to-fuchsia-500 bg-clip-text text-transparent">Scylla</h1>
         <p className="text-base sm:text-lg md:text-xl max-w-2xl mx-auto text-gray-200 px-2">Empowering businesses and startups with complete digital solutions: websites, branding, online orders, social media, and more.</p>
       </header>
       <main className="max-w-6xl mx-auto px-4 sm:px-6 pb-16">
         <section className="mb-8 sm:mb-12 text-center">
           <h2 className="text-lg sm:text-xl font-bold mb-2">Your Digital Success Partner</h2>
-          <p className="max-w-2xl mx-auto text-gray-300 text-sm sm:text-base px-2">At Digital Wing, we help businesses, startups, and stores build and manage their digital presence. From websites and branding to social media, online orders, and AI-powered chatbots, we provide everything you need to thrive in the digital world. Our team delivers remote and offline services, tailored bundles, and ongoing support to ensure your business stands out and grows online.</p>
+          <p className="max-w-2xl mx-auto text-gray-300 text-sm sm:text-base px-2">At Scylla, we help businesses, startups, and stores build and manage their digital presence. From websites and branding to social media, online orders, and AI-powered chatbots, we provide everything you need to thrive in the digital world. Our team delivers remote and offline services, tailored bundles, and ongoing support to ensure your business stands out and grows online.</p>
         </section>
         <section className="mb-12 sm:mb-16">
           <h2 className="text-xl sm:text-2xl font-bold mb-6 sm:mb-8 text-center px-2">All-in-One Business Digital Bundles</h2>
@@ -213,10 +213,10 @@ export default function Home() {
         <section className="text-center px-4">
           <h2 className="text-xl sm:text-2xl font-bold mb-4">Ready to Grow Your Business?</h2>
           <p className="mb-6 text-gray-200 text-sm sm:text-base">Contact us for a free consultation or to get started with your digital transformation.</p>
-          <a href="mailto:info@digitalwing.com" className="inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full shadow-lg transition text-sm sm:text-base">Contact Us</a>
+          <a href="mailto:info@scylla.com" className="inline-block bg-pink-500 hover:bg-pink-600 text-white font-bold py-2 sm:py-3 px-6 sm:px-8 rounded-full shadow-lg transition text-sm sm:text-base">Contact Us</a>
         </section>
       </main>
-      <footer className="py-6 sm:py-8 text-center text-gray-400 text-xs px-4">&copy; {new Date().getFullYear()} Digital Wing. All rights reserved.</footer>
+      <footer className="py-6 sm:py-8 text-center text-gray-400 text-xs px-4">&copy; {new Date().getFullYear()} Scylla. All rights reserved.</footer>
     </div>
   );
 }

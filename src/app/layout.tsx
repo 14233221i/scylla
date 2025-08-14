@@ -15,7 +15,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Digital Wing",
+  title: "Scylla",
   description: "Empowering businesses with digital solutions.",
 };
 
