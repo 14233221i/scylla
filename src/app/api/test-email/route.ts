@@ -3,6 +3,18 @@ import { sendContactNotification } from '../../../../lib/email';
 
 export async function POST(request: NextRequest) {
   try {
+    // Debug: Check environment variables
+    console.log('Testing email configuration...');
+    console.log('EMAIL_USER:', process.env.EMAIL_USER ? 'Set' : 'Not set');
+    console.log('EMAIL_PASS:', process.env.EMAIL_PASS ? 'Set' : 'Not set');
+    
+    if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+      return NextResponse.json(
+        { error: 'Email environment variables not configured' },
+        { status: 500 }
+      );
+    }
+
     // Test email data
     const testData = {
       name: "Test User",
