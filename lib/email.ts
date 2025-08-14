@@ -4,8 +4,8 @@ import nodemailer from 'nodemailer';
 const transporter = nodemailer.createTransport({
   service: 'gmail',
   auth: {
-    user: process.env.'suhashc8@gmail.com', // Your Gmail address
-    pass: process.env.'LiOn@2004', // Your Gmail app password
+    user: process.env.EMAIL_USER, // Your Gmail address
+    pass: process.env.EMAIL_PASS, // Your Gmail app password
   },
 });
 
@@ -17,7 +17,7 @@ export async function sendContactNotification(data: {
 }) {
   try {
     const mailOptions = {
-      from: process.env.suhashc8@gmail.com',
+      from: process.env.EMAIL_USER,
       to: 'tonystanks121@gmail.com',
       subject: 'New Contact Form Submission - Scylla',
       html: `
