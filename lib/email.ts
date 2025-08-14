@@ -15,6 +15,15 @@ export async function sendContactNotification(data: {
   phone: string;
   message: string;
 }) {
+  // Debug: Check if environment variables are set
+  console.log('EMAIL_USER:', process.env.EMAIL_USER ? 'Set' : 'Not set');
+  console.log('EMAIL_PASS:', process.env.EMAIL_PASS ? 'Set' : 'Not set');
+  
+  if (!process.env.EMAIL_USER || !process.env.EMAIL_PASS) {
+    console.error('Missing email environment variables');
+    return false;
+  }
+  
   try {
     const mailOptions = {
       from: process.env.EMAIL_USER,

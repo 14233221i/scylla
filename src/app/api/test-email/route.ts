@@ -8,7 +8,7 @@ export async function POST(request: NextRequest) {
       name: "Test User",
       email: "test@example.com",
       phone: "+91 1234567890",
-      message: "This is a test email from Digital Wing website to verify email functionality is working correctly."
+      message: "This is a test email from Scylla website to verify email functionality is working correctly."
     };
 
     const emailSuccess = await sendContactNotification(testData);
